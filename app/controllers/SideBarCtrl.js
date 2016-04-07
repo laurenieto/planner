@@ -10,7 +10,7 @@ function SideBarCtrl(EventService, SharedService, AuthService, $scope, $location
   var vm = this;
   vm.title = 'PLANNER'
   vm.currentSchedule = false
-  vm.userData = null
+  vm.userData = null /*= null quand user non connecté*/
   vm.week = [
     'Monday',
     'Tuesday',
@@ -21,10 +21,11 @@ function SideBarCtrl(EventService, SharedService, AuthService, $scope, $location
   vm.addEvent = function(){
     EventService.addEvent(vm.currentSchedule)
   }
-
-  vm.logout = function() {
+  vm.logout = function(){
     AuthService.logout()
-    $location.path('/')
+  }
+  vm.addEvent2 = function(){
+    EventService.addEvent2(vm.week[0])
   }
 
   $scope.$on('SharedService', function () {

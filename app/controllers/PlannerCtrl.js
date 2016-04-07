@@ -20,6 +20,10 @@ function PlannerCtrl(EventService, SharedService) {
     }, {
         id: '4',
         time: '16h - 18h',
+    },
+    {
+      id:'-1',
+      time:'jamais'
     }]
     vm.events = EventService.events
     vm.removeEvent = function(event) {

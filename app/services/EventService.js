@@ -17,7 +17,12 @@ function EventService ($firebaseArray) {
       var id = ref.key()
     })
   };
+  EventService.addEvent2 = function (add) {
+    this.events.$add({name:"event",type:"-1",day:add}).then(function(ref) {
+      var id = ref.key()
 
+    })
+  };
   EventService.removeEvent = function(event) {
     this.events.$remove(event)
   }
